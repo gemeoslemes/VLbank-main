@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/img/icon-logo.ico" style="border-radius:10px">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/css/enderecos.css">
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<meta name="author" content="Victor e Vinicius" />
+<title>Login</title>
+</head>
+<body>
+	<div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+	<div class="login-editar">
+		<form th:object="${login}" action="/login" method="post"
+			class="form-absoluto-endereco" novalidate>
+			<h3>Login</h3>
+			<div>
+				<label>Email*</label> <input type="text" th:field="*{email}"
+					class="is-invalid">
+				<div class="invalid-feedback" th:errors="*{email}"
+					th:text="${email}"></div>
+				<!-- 			<div class="invalid-feedback" th:if="${msg}"> -->
+				<!-- 				<span th:text="${msg}"></span> -->
+				<!-- 			</div> -->
+			</div>
+
+			<div>
+				<label>Senha*</label> <input type="password" th:field="*{senha}"
+					class="is-invalid">
+				<div class="invalid-feedback" th:errors="*{senha}"
+					th:text="${senha}"></div>
+				<div class="invalid-feedback" th:if="${msg}">
+					<span th:text="${msg}"></span>
+				</div>
+			</div>
+			<button type="submit" class="botao-cria-conta">Entrar</button>
+		</form>
+	</div>
+	<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+
+</body>
+</html>

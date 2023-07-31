@@ -1,0 +1,76 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/img/icon-logo.ico" style="border-radius:10px">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/endereco.css">
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<meta name="author" content="Victor e Vinicius" />
+<title>VLBank | Criar Conta - Endereços</title>
+</head>
+<body>
+	<div class="template">
+		<div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+			
+			<div class="form-absoluto-endereco ">
+			<form th:method="POST" th:action="@{/enderecos/{clienteId}(clienteId=${clienteId})}" 
+			th:object="${enderecoDto}" class="form-editar">
+				<h3>Informações do Endereço:</h3>
+					<div>
+						<label>Rua*</label>
+						<input type="text" th:field="*{rua}" class="is-invalid">
+						<div class="invalid-feedback" th:errors="*{rua}" th:text="${rua}"></div>
+					</div>
+					<div>
+						<label>Número*</label>
+						<input type="text" th:field="*{numero}" class="is-invalid">
+						<div class="invalid-feedback" th:errors="*{numero}" th:text="${numero}"></div>
+					</div>
+					<div>
+						<label>Complemento</label>
+						<input type="text" th:field="*{complemento}" class="is-invalid">
+						<div class="invalid-feedback" th:errors="*{complemento}" th:text="${complemento}"></div>
+					</div>
+					<div>
+						<label>UF*</label> 	
+							<select th:field="*{uf}" class="is-invalid uf">
+								<option
+									th:each="uf : ${T(br.com.VLbank.model.endereco.UF).values()}"
+									th:value="${uf}" th:text="${uf}"></option>	
+							</select> 
+						<div class="invalid-feedback" th:errors="*{uf}"></div>
+					</div>
+					<div>
+						<label>CEP*</label>
+						<input type="text" th:field="*{cep}" class="is-invalid cep">
+						<div class="invalid-feedback" th:errors="*{cep}"></div>
+					</div>
+					<div>
+						<label>Cidade*</label>
+						<input type="text" th:field="*{cidade}" class="is-invalid">
+						<div class="invalid-feedback" th:errors="*{cidade}"></div>
+					</div>
+					<button type="submit" class="botao-cria-conta">Enviar</button>
+			</form>
+			</div>	
+			
+			<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+		</div>
+		<script>
+			$(".cep").mask("99999-999");
+		</script>
+</body>
+</html>

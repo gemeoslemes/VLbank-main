@@ -1,0 +1,35 @@
+.carrossel__titulo {
+	color: #ec7000;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 1em 0 0.5em 0;
+}
+
+
+.swiper-slide {
+	display: flex;
+	align-items: center;
+}
+
+.swiper-slide img {
+	display: inline-block;
+	border-radius: 40px;
+	padding: 30px;
+    width: 50%;
+    
+}
+
+.texto-cartao {
+	font-size: 20px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+.swiper-pagination {
+    position: initial;
+    margin: .5em 0;
+}

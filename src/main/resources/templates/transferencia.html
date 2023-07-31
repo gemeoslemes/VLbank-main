@@ -1,0 +1,75 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/icon-logo.ico" style="border-radius:10px">
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/css/confirmaTaranferencia.css">
+  <link rel="stylesheet" href="/css/endereco.css">
+  <script
+          src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script
+          src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <meta name="author" content="Victor e Vinicius" />
+  <title>VLBank | Transferência</title>
+</head>
+<body>
+<div th:replace="~{fragmentos/fragmentos2 :: cabecalho2}"></div>
+
+<form th:method="POST"
+      th:action="@{/transferencia/{clienteId}(clienteId=${clienteId})}"
+      th:object="${transferenciaDto}"
+      class="form-absoluto-endereco">
+  <h3>Informações da Conta:</h3>
+  <div>
+    <label>Tipo:</label> <select th:field="*{tipo}">
+    <option value="CC">Conta Corrente</option>
+    <option value="CP">Conta Poupança</option>
+    <option value="CC/CP">Conta Corrente/Poupança</option>
+  </select>
+  </div>
+
+  <div>
+    <label>Número da Conta</label>
+    <input type="text" th:field="*{numeroConta}" class="is-invalid numeroConta">
+    <div class="invalid-feedback" th:errors="*{numeroConta}" th:text="${numeroConta}"></div>
+  </div>
+
+  <div>
+    <label>Dac:</label>
+    <input type="text" th:field="*{dac}" class="is-invalid numeroConta">
+    <div class="invalid-feedback" th:errors="*{dac}" th:text="${dac}"></div>
+    <div class="invalid-feedback" th:if="${msg}">
+      <span th:text="${msg}"></span>
+    </div>
+
+  </div>
+
+  <div>
+    <label>Agência</label> <select>
+    <option value="agencia">7199</option>
+  </select>
+  </div>
+
+  <div>
+    <label>banco</label> <select>
+    <option value="banco">25</option>
+  </select>
+  </div>
+  <button type="submit" class="botao-cria-conta">Realizar Transferência</button>
+
+</form>
+
+
+<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+</body>
+</html>

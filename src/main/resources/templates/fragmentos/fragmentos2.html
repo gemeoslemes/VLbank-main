@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon-logo.ico" style="border-radius:10px">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <title>VLBank</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <meta name="author" content="Victor e Vinicius"/>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/carrossel.css">
+    <script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+    <header id="nav" class="nav-mobile" th:fragment="cabecalho2">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ec7000">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="/img/logo.png" width=65px style="border-radius:5px" class="nav-img"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navMobile" class="navbar-collapse collapse justify-content-end">
+                <a class="nav-item nav-link nav-border" th:href="@{/vlbank/{clienteId}(clienteId=${clienteId})}" style="color:#FFFFFF;">Inicio</a>
+                <a class="nav-item nav-link nav-border" th:href="@{/transferencia/{clienteId}(clienteId=${clienteId})}" style="color:#FFFFFF;">Transferência</a>
+                <a class="nav-item nav-link nav-border" th:href="@{/extrato/{clienteId}(clienteId=${clienteId})}" style="color: #FFFFFF;">Extrato</a>
+                <a class="nav-item nav-link nav-border" th:href="@{/}" style="color: #FFFFFF;">Sair</a>
+
+            </div>
+        </nav>
+    </header>
+
+</body>
+</html>

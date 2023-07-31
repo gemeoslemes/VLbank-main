@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>VLBank | Feito para você</title>
+	<link rel="icon" href="img/icon-logo.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<meta name="author" content="Victor e Vinicius"/>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/carrossel.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+</head>
+<body>
+	<div class="template template-mobile">
+		<div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+		<main id="principal">
+			<section class="neo-section">
+				<div class="botoes">
+					<div class="text-main">
+						<h1 class="titulo-pricipal">A conta que todo mundo quer</h1>
+						<br>
+						<h3 class="titulo-pricipal">Nossos cartões e benefícios</h3>
+						<img src="img/capa_do_header.png" alt="capa" class="img-capa img-capa-mobile">
+					</div>
+		<!-- 			<div class="wm"> -->
+		<!-- 				<button class="btn btn-primary">Abra sua conta</button> -->
+		<!-- 			</div> -->
+		
+		<!-- 			<div class="wm"> -->
+		<!-- 				<button class="btn btn-primary">Fazer login</button> -->
+		<!-- 			</div> -->
+					<div class="clear">
+						
+					</div>
+				</div>
+			</section>
+		
+		</main>
+		<section class="carrossel" id="carrossel">
+			<h2 class="carrossel__titulo">Cartões</h2>
+			<div class="swiper">
+			
+				<div class="swiper-pagination"></div>
+				
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-mobile"><img src="img/cartao_digital.png" alt="Cartão Mater" class="swiper-img swiper-img-mobile">
+					
+						<ul class="texto-cartao texto-cartao-mobile" style="list-style: none;">
+	  						<li> Limites de crédito mais elevados: os cartões Platinum geralmente têm limites de 
+	  							crédito mais altos.</li>
+							<li> O que permite que você faça compras maiores e tenha mais flexibilidade financeira.</li>
+							<li> Serviço de concierge: Cartões Platinum oferecem um serviço de concierge pessoal
+								que pode ajudar a reservar viagens, restaurantes e eventos. </li>	
+						</ul>
+	
+					</div>
+					<div class="swiper-slide swiper-slide-mobile"><img src="img/cartao_digital_black.png" alt="Cartão Black" class="swiper-img swiper-img-mobile">
+						
+						<ul class="texto-cartao texto-cartao-mobile" style="list-style: none;">
+							<li>Além de todos os benefícios citados no platinium, o cartão black acumula pontos 
+							ou milhas podem ser trocados por diversos produtos e serviços, como passagens aéreas, 
+							hospedagem em hotéis, eletrônicos, entre outros.</li>
+							<li>Serviços exclusivos: assistência pessoal, seguro viagem, acesso a logares em aeroportos, 
+							entre outros.</li>
+							<li>Limite de crédito mais alto.</li>
+						</ul>
+					</div>
+					<div class="swiper-slide swiper-slide-mobile"><img src="img/cartao_visa.png" class="swiper-img swiper-img-mobile">
+					
+						<ul class="texto-cartao texto-cartao-mobile" style="list-style: none;">
+								<li> Programa de pontos: Você pode acumular pontos em todas as suas compras. 
+								Esses pontos podem ser trocados por diversos benefícios, como descontos em produtos 
+								e serviços, viagens, entre outros.</li>
+								<li> Proteção e segurança: Pode oferecer diversas proteções e seguranças,
+								 como seguro contra roubo, perda ou extravio do cartão, 
+								proteção em caso de compras indevidas, entre outros.</li>
+						</ul>
+					</div>
+				
+					
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>	
+			
+		</section>	
+		<div id="titulo">
+			<h2>Principais benefícios</h2>
+			<p class="titulo-produto">Produtos e serviços</p>
+		</div>
+		<div id="conteudo1">
+			<img src="img/icon-logo.ico" width="50px" class="img-conteudos">
+			<h3 class="container-conteudo-titulo">Conta VLbank</h3>
+			<p><img alt="icon-usuario" src="img/icons-usuario.gif" width="32px" class="img-icon">Conta sem mensalidade</p>
+			<p><img alt="icon-burocracia" src="img/icon-burocracia.png" class="img-icon">Melhores taxas sem burocracia</p>
+			<p><img alt="icon-dolar" src="img/icon-dolar.gif" width="32px" class="img-icon">Efetua transações sem taxas</p>
+		</div>
+		<div id="conteudo2">
+			<img src="img/vlbank-orange.ico" width="50px" class="img-conteudos">
+			<h3 class="container-conteudo-titulo">Vantagens PIX</h3>
+			<p><img alt="icon-chave" src="img/icons-chave.gif" width="32px" class="img-icon">Chaves Pix</p>
+			<p><img alt="icon-banco" src="img/icons-banco.png" width="32px" class="img-icon">Prático e gratuito</p>
+			<p><img alt="icon-rapido" src="img/icon-rapido.png" width="32px" class="img-icon">Simples e rápido</p>
+		</div>
+		<div id="conteudo3">
+			<img src="img/icon-logo.ico" width="50px" class="img-conteudos">
+			<h3 class="container-conteudo-titulo">Transações</h3>
+			<p><img alt="icon-usuario" src="img/icon-transacao.png" width="32px" class="img-icon">Oferece diversos meios de pagamentos</p>
+			<p><img alt="icon-burocracia" src="img/icon-escudo.gif" width="32px" class="img-icon">Protocólos de seguranças</p>
+			<p><img alt="icon-dolar" src="img/icon-dolar.gif" width="32px" class="img-icon">Maior liquidez e zero custos</p>
+		</div>
+		<div id="conteudo4">
+			<img src="img/vlbank-black.ico" width="50px" class="img-conteudos">
+			<h3 class="container-conteudo-titulo">Exclusividade</h3>
+			<p><img alt="icon-cartao" src="img/icon-cartao.png" width="32px" class="img-icon">Cartão Black sem anuidade</p>
+			<p><img alt="icon-usuario" src="img/icons-usuario.gif" width="32px" class="img-icon">1 ano de insenção na tarifa</p>
+			<p><img alt="icon-desconto" src="img/icon-desconto.png" width="32px" class="img-icon">Descontos e experiências exclusivas</p>
+		</div>
+		<section id="conta">
+			<div class="conta-principal">
+				<div class="conta-titulo">
+					<h3>Abra sua conta ainda hoje</h3>
+					<p style="font-size: 18px">Sua conta 100% digital e com benefícios exclusivos</p>
+
+				</div>
+				<div class="conta-botao">
+					<a class="bnt-conta" th:href="@{/criar-conta}" style="color:#FFFFFF;">Abrir conta</a>
+				</div>
+				<div class="conta-imagem">
+					<img alt="img-contrato" src="img/img-contrato-remove.png" class="conta-imagem-mobile">
+				</div>
+			</div>
+		</section>
+		
+		
+		<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 6,
+            slidesPerView: 1,
+            pagination: {
+                 el: '.swiper-pagination',
+                type: 'bullets',
+            },
+        });
+    </script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

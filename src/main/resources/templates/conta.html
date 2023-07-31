@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/img/icon-logo.ico" style="border-radius:10px">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/conta.css">
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<meta name="author" content="Victor e Vinicius" />
+<title>VLBank | Criar Conta - Conta</title>
+</head>
+<body>
+	<div class="conta-editar">
+		<div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+		<form th:method="POST"
+			th:action="@{/conta/{clienteIdConta}(clienteIdConta=${clienteIdConta})}"
+			th:object="${contaDto}" class="form-absoluto-endereco">
+			<h3>Informações da Conta:</h3>
+			<div>
+				<label>Tipo*</label> <select th:field="*{tipo}" class="is-invalid">
+					<option value="CC">Conta Corrente</option>
+					<option value="CP">Conta Poupança</option>
+					<option value="CC/CP">Conta Corrente/Poupança</option>
+				</select>
+				<div class="invalid-feedback" th:errors="*{tipo}"></div>
+			</div>
+			<div>
+				<label>Selecione uma Conta:*</label> <select class="numeroConta"
+					id="numeroConta" th:field="*{numeroConta}">
+					<option th:each="numeroConta : ${numeroCont}"
+						th:value="${numeroConta}" th:text="${numeroConta}"></option>
+				</select>
+				<div th:if="${msg}" class="error-message">
+					<p th:text="${msg}"></p>
+				</div>
+			</div>
+			<button type="submit" class="botao-cria-conta">Enviar</button>
+		</form>
+
+		<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+	</div>
+</body>
+</html>

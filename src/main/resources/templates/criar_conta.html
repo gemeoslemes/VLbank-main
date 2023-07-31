@@ -1,0 +1,148 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/icon-logo.ico" style="border-radius:10px">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/cria_conta.css">
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<meta name="author" content="Victor e Vinicius" />
+<title>VLBank | Criar Conta</title>
+</head>
+<body>
+	<div class="template">
+		<div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+		<h1 th:text="${msg}"></h1>
+
+
+		<div class="form-absoluto ">
+			<form th:object="${clienteDto}" action="/criar-conta" method="post"
+				class="form-editar" novalidate>
+				<h3>Informações Pessoais:</h3>
+				<div>
+					<label>Nome*</label> <input type="text" th:field="*{nome}"
+						class="is-invalid " id="nome">
+					<div class="invalid-feedback" th:errors="*{nome}" th:text="${nome}"></div>
+				</div>
+				<div>
+					<select class="tipo">
+						<option value="RJ">RJ</option>
+						<option value="SP">SP</option>
+					</select>
+				</div>
+				<div>
+					<label>RG*</label> <input type="text" th:field="*{rg}"
+						class="is-invalid" id="rg">
+					<div class="invalid-feedback" th:errors="*{rg}"></div>
+					<div class="invalid-feedback" th:if="${mensagemErroRg}">
+						<span th:text="${mensagemErroRg}"></span>
+					</div>
+				</div>
+				<div>
+				<select class="pessoa">
+					<option value="F">F</option>
+					<option value="J">J</option>
+				</select>
+					
+				</div>
+<!-- 				<div> -->
+<!-- 					<label>Tipo Pessoa*</label> 	 -->
+<!-- 					<select th:field="*{tipo}" class="is-invalid tipo"> -->
+<!-- 						<option -->
+<!-- 							th:each="tipo : ${T(br.com.VLbank.model.TipoPessoa).values()}" -->
+<!-- 							th:value="${tipo}" th:text="${tipo}"></option>	 -->
+<!-- 					</select>  -->
+<!-- 					<div class="invalid-feedback" th:errors="*{tipo}"></div> -->
+<!-- 					<div class="invalid-feedback" th:if="${menssagemTipo2}"> -->
+<!-- 						<span th:text="${menssagemTipo2}"></span> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				<div>
+					<label>CPF/CNPJ*</label> <input type="text" th:field="*{cpfCnpj}"
+						class="is-invalid cpfCnpj">
+					<div class="invalid-feedback" th:errors="*{cpfCnpj}"></div>
+					<div class="invalid-feedback" th:if="${menssagemErroCPForCNPJ}">
+						<span th:text="${menssagemErroCPForCNPJ}"></span>
+					</div>
+				</div>
+				<div>
+					<label>Email*</label> <input type="text" th:field="*{email}"
+						class="is-invalid">
+					<div class="invalid-feedback" th:errors="*{email}"></div>
+					<div class="invalid-feedback" th:if="${mensagemErroEmail}">
+						<span th:text="${mensagemErroEmail}"></span>
+					</div>
+				</div>
+				<div>
+					<label>Telefone*</label> <input type="text" th:field="*{telefone}"
+						class="is-invalid telefone">
+					<div class="invalid-feedback" th:errors="*{telefone}"></div>
+					<div class="invalid-feedback" th:if="${menssagemErroTelefone}">
+						<span th:text="${menssagemErroTelefone}"></span>
+					</div>
+				</div>
+				<div>
+					<label>Data de Nascimento*</label> <input type="date"
+						th:field="*{dataNascimento}" class="is-invalid">
+					<div class="invalid-feedback" th:errors="*{dataNascimento}"></div>
+				</div>
+				<div>
+					<label>Senha*</label> <input type="password" th:field="*{senha}"
+						class="is-invalid">
+					<div class="invalid-feedback" th:errors="*{senha}"></div>
+				</div>
+				<div>
+					<label>Confirmar Senha*</label> <input type="password"
+						th:field="*{confirmarSenha}" class="is-invalid">
+					<div class="invalid-feedback" th:errors="*{confirmarSenha}"></div>
+				</div>
+
+				<button type="submit" class="botao-cria-conta">Enviar</button>
+			</form>
+		</div>
+		<div th:replace="~{fragmentos/fragmentos :: final}"></div>
+	</div>
+
+	<script>
+		$(".telefone").mask("(99) 99999-9999");
+		$(".cpfCnpj").mask("999.999.999-99");
+		$(".pessoa").change(function() {
+			var pessoa = $(this).val();
+
+			if (pessoa != "F") {
+				$(".cpfCnpj").mask("99.999.999/9999-99");
+			} else  {
+				$(".cpfCnpj").mask("999.999.999-99");
+			} 
+//			$(".cpfCnpj").mask("99.999.999/9999-99");
+// 			$(".cpfCnpj").mask("999.999.999-99");
+
+		});
+// 		$("#rg").mask("99.999.999");
+// 		$(".tipo").change(function() {
+// 			var estados = $(this).val();
+
+// 			if (estados === "SP" || estados === "RJ") {
+		$("#rg").mask("99.999.999-9");
+// 			} else {
+// 				$("#rg").mask("99.999.999");
+// 			}
+// 		});
+// 		$("#rg").mask("99.999.999-9");
+// 		$("#rg").mask("99.999.999");
+	</script>
+
+</body>
+</html>

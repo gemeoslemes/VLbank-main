@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/icon-logo.ico" style="border-radius:10px">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/confirmaTaranferencia.css">
+
+    <script
+            src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.1.0/vanilla-masker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <meta name="author" content="Victor e Vinicius" />
+    <title>VLBank | Confirmar</title>
+</head>
+<body>
+    <div th:replace="~{fragmentos/fragmentos2 :: cabecalho2}"></div>
+    <form th:method="POST"
+          th:action="@{'/confirmar/' + ${clienteId} + '?conta=' + ${idConta}}"
+          th:object="${confirmarDto}"
+          class="form-absoluto-endereco">
+        <h3>Confirmar Transferência:</h3>
+
+        <div>
+            <label>Valor da Transferência:</label>
+            <input type="text" th:field="*{valor}" class="is-invalid numeroConta">
+            <div class="invalid-feedback" th:errors="*{valor}" th:text="${valor}"></div>
+        </div>
+
+        <div>
+            <label>Senha:</label>
+            <input type="password" th:field="*{senha}" class="is-invalid numeroConta">
+            <div class="invalid-feedback" th:errors="*{senha}" th:text="${senha}"></div>
+            <div class="invalid-feedback" th:if="${msg}">
+                <span th:text="${msg}"></span>
+            </div>
+        </div>
+
+        <button type="submit" class="botao-cria-conta">Realizar Transferência</button>
+    </form>
+
+    <div th:replace="~{fragmentos/fragmentos :: final}"></div>
+</body>
+</html>
