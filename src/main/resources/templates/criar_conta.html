@@ -36,20 +36,8 @@
 						class="is-invalid " id="nome">
 					<div class="invalid-feedback" th:errors="*{nome}" th:text="${nome}"></div>
 				</div>
-				<div>
-					<select class="tipo">
-						<option value="RJ">RJ</option>
-						<option value="SP">SP</option>
-					</select>
-				</div>
-				<div>
-					<label>RG*</label> <input type="text" th:field="*{rg}"
-						class="is-invalid" id="rg">
-					<div class="invalid-feedback" th:errors="*{rg}"></div>
-					<div class="invalid-feedback" th:if="${mensagemErroRg}">
-						<span th:text="${mensagemErroRg}"></span>
-					</div>
-				</div>
+
+
 				<div>
 				<select class="pessoa">
 					<option value="F">F</option>

@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "cliente", uniqueConstraints = {@UniqueConstraint(columnNames = {"rg", "cpf_cnpj", "email"})})
+@Table(name = "cliente", uniqueConstraints = {@UniqueConstraint(columnNames = { "cpf_cnpj", "email"})})
 @SenhaConfirmacao(senhaFieldName = "senha", confirmarSenhaFieldName = "confirmarSenha", message = "Erro")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -45,15 +45,7 @@ public class Cliente {
 	@NotBlank(message = "Nome é obrigatório")
 	@Pattern(regexp = "^[a-zA-ZÀ-ú]+([\\s][a-zA-ZÀ-ú]+)*$", message = "O campo nome deve conter apenas letras e espaços.")
 	private String nome;
-	
-	@Column(name = "estados")
-	private String estados;
-	
-	@RG
-	@NotBlank(message = "RG é obrigatório")
-	@Column(nullable = false, unique = true)
-	private String rg;
-	
+
 	@NotBlank(message = "Não pode ser nulo")
 	@Column(name = "cpf_cnpj", nullable = false, unique = true)
 	@CPFOrCNPJ
@@ -111,14 +103,6 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
 	public String getCpfCnpj() {
 		return cpfCnpj;
 	}
@@ -171,14 +155,6 @@ public class Cliente {
 		return tipo;
 	}
 
-	public String getEstados() {
-		return estados;
-	}
-
-	public void setEstados(String estados) {
-		this.estados = estados;
-	}
-
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
@@ -206,7 +182,7 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [nrocli=" + nrocli + ", nome=" + nome + ", rg=" + rg + ", cpfCnpj=" + cpfCnpj + ", email="
+		return "Cliente [nrocli=" + nrocli + ", nome=" + nome +  ", cpfCnpj=" + cpfCnpj + ", email="
 				+ email + ", telefone=" + telefone + ", dataNascimento=" + dataNascimento + ", senha=" + senha
 				+ ", confirmarSenha=" + confirmarSenha + "]";
 	}

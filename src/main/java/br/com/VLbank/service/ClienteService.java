@@ -62,10 +62,6 @@ public class ClienteService {
 		return repository.existsByCpfCnpj(cpfCnpj);
 	}
 
-	public boolean existeRG(String rg) {
-		return repository.existsByRg(rg);
-	}
-
 	public boolean existeTelefone(String telefone) {
 		return repository.existsByTelefone(telefone);
 	}
@@ -119,10 +115,7 @@ public class ClienteService {
 	        bindingResult.addError(new FieldError("requisicao", "cpfCnpj", "CPF ou CNPJ já existe na base de dados!"));
 	        existe = true;
 	    }
-	    if (existeRG(requisicao.getRg())) {
-	        bindingResult.addError(new FieldError("requisicao", "rg", "RG já existente na base de dados"));
-	        existe = true;
-	    }
+
 	    if (existeTelefone(requisicao.getTelefone())) {
 	        bindingResult.addError(new FieldError("requisicao", "telefone", "Telefone já existente na base de dados"));
 	        existe = true;
