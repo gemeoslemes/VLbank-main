@@ -44,7 +44,7 @@ O pix terá a opção de escolher se quer ou não ativação pela chave, as chav
   <th>
     <td>Java</td>
     <td>Spring boot</td>
-    <td>MySQK</td>
+    <td>MySQL</td>
     <td>JavaScript</td>
     <td>CSS</td>
     <td>HTML</td>
