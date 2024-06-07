@@ -1,6 +1,4 @@
 # VLbank Banco Virtual:
-## Link do vídeo do projeto:
-https://clipchamp.com/watch/ACFbua8xeJx
 
 ## Tela Home:
 Na tela principal do nosso projeto vai apresentar algumas informações sobre nossos serviços, onde o usuário poderá realizar o login se já tiver uma conta, ou terá que criar uma conta para que possa se cadastrar em nosso sistema. Deverá suportar diversos tipos de conteúdo (texto, imagem, ícones, etc.).
